@@ -1,27 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
+import { GlobalContext } from "../contexts/GlobalContext";
+import usePostsFetchMore from "../customHooks/usePostsFetchMore";
 
-const Loader = ({ dispatch }) => {
+const Loader = () => {
   const [showLoader, setShowLoader] = useState(false);
+  let { dispatch } = useContext(GlobalContext);
+  usePostsFetchMore(dispatch);
 
-  useEffect(() => {
-    // window.addEventListener("scroll", () => {
-    //   console.log("evls added");
-    //   const {
-    //     scrollTop,
-    //     scrollHeight,
-    //     clientHeight,
-    //   } = document.documentElement;
-
-    //   scrollTop + clientHeight >= scrollHeight - 50 &&
-    //     dispatch({ type: "GET_MORE_POSTS" });
-
-    // setTimeout(() => setShowLoader(false), 1000);
-
-    window.addEventListener(
-      "keypress",
-      (e) => e.key === "Enter" && dispatch({ type: "GET_MORE_POSTS" })
-    );
-  }, []);
   return (
     <div className={`loader ${showLoader && "show"}`}>
       <div className="circle"></div>
