@@ -12,7 +12,7 @@ const appReducer = (state, action) => {
       return {
         ...state,
         urlPage: state.urlPage + 1,
-        base_url: `https://jsonplaceholder.typicode.com/posts?_limit=5&_page=${
+        base_url: `https://jsonplaceholder.typicode.com/posts?_limit=4&_page=${
           state.urlPage + 1
         }`,
       };

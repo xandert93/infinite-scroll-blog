@@ -23,14 +23,13 @@ body {
 }
 
 #root {
-  height: 95vh;
+  height: 90vh;
   width: 90vw;
   display: flex;
-  padding: 16px;
+  margin: 0 20px;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 65px;
-  overflow-y: scroll;
+  margin-bottom: 40px;
 }
 
 .header {
@@ -91,13 +90,19 @@ body {
   cursor: default;
 }
 
+.posts-container {
+  margin-top: 10px;
+  overflow-y: scroll;
+}
+
 .post-container {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  width: 100%;
+  width: 97%;
+  max-width: 800px;
   border-radius: 5px;
   background: rgba(0, 90, 225, 0.193);
   box-shadow: var(--custom-box-shadow);
@@ -129,7 +134,7 @@ body {
 
 .post-body {
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.85);
   line-height: 20px;
 }
@@ -181,6 +186,7 @@ body {
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
+  /* display: none; */
 }
 
 /* Track */
@@ -197,10 +203,4 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: white;
-}
-
-@media (min-width: 600px) {
-  * {
-    transform: scale(1.1);
-  }
 }

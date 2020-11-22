@@ -12,8 +12,8 @@ const usePostsFetch = (base_url, dispatch) => {
           .catch((err) =>
             dispatch({ type: "ERROR", payload: "There was an error." })
           );
-      }, 300),
-    [base_url]
+      }, 700),
+    [base_url, dispatch]
   );
 };
 
