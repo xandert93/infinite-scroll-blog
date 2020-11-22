@@ -6,13 +6,8 @@ const PostContainers = () => {
   const { state } = useContext(GlobalContext);
   let { filteredPosts } = state;
 
-  return filteredPosts.map((post) => (
-    <PostContainer
-      key={post.id}
-      postNum={post.id}
-      title={post.title}
-      body={post.body}
-    />
+  return filteredPosts.map(({ id, title, body }) => (
+    <PostContainer key={id} postNum={id} title={title} body={body} />
   ));
 };
 export default PostContainers;
