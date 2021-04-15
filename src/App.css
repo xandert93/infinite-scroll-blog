@@ -1,148 +1,168 @@
-@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
 :root {
-  --custom-box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  --box-shad-sm: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+
+  --margin-xs: 1rem;
+  --margin-sm: 2rem;
+
+  --bord-rad-sm: 0.5rem;
 }
 
-* {
-  box-sizing: border-box;
-  color: white;
-  font-family: "Questrial", sans-serif;
+html {
+  font-size: 62.5%;
+}
+
+@media only screen and (min-width: 30em) {
+  html {
+    font-size: 68.75%;
+  }
+}
+@media only screen and (min-width: 40em) {
+  html {
+    font-size: 75%;
+  }
+}
+@media only screen and (min-width: 50em) {
+  html {
+    font-size: 81.25%;
+  }
+}
+@media only screen and (min-width: 60em) {
+  html {
+    font-size: 87.5%;
+  }
+}
+@media only screen and (min-width: 70em) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  height: 100vh;
-  margin: 0;
-  background: linear-gradient(180deg, rgb(0, 77, 192), black 60%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-y: hidden;
+  box-sizing: border-box;
+  font-family: 'Questrial', sans-serif;
+  color: white;
+  text-align: center;
 }
 
 #root {
-  height: 90vh;
-  width: 90vw;
-  display: flex;
-  margin: 0 20px;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 40px;
+  background: linear-gradient(180deg, rgb(0, 77, 192), black 60%) no-repeat;
+  overflow: hidden;
 }
 
-.header {
+/* #root > :not(:last-child) {
+} */
+
+h1 {
+  font-size: 2.5rem;
   letter-spacing: 3px;
+  height: 15vh;
+  padding-top: 2.5rem;
 }
 
 .search-input-container {
-  display: flex;
-  width: 70%;
-  max-width: 500px;
-  text-align: center;
-  margin-bottom: 10px;
-  background: linear-gradient(90deg, rgb(2, 1, 56), black 90%);
-  border-radius: 3px;
-  border: 2px solid black;
-  box-shadow: var(--custom-box-shadow);
+  height: 10vh;
 }
 
 .search-input {
-  width: 90%;
-  padding: 10px 10px;
-  background: rgb(2, 1, 56);
-  border: 0;
-  font-size: 16px;
+  margin: 0 auto;
+  width: 80%;
+  height: 3rem;
+  max-width: 50rem;
+  transform: scale(0.93);
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: var(--bord-rad-sm);
+  font-size: 1.6rem;
   text-align: center;
+  transition: transform 0.3s, border-color 0.6s;
 }
 
 .search-input::placeholder {
-  color: rgba(255, 255, 255, 0.575);
-  font-size: 16px;
-  text-align: center;
+  color: rgb(95, 95, 95);
 }
 
 .search-input:focus {
   outline: none;
-}
-
-.search-btn,
-.search-input {
-  background: transparent;
-}
-
-.search-btn {
-  width: 10%;
-  height: 100%;
-  border: 0;
-}
-
-.search-btn:hover {
-  cursor: pointer;
-}
-
-.search-btn:focus {
-  outline: 0;
-}
-
-.search-btn:active {
-  cursor: default;
+  border-color: rgb(46, 189, 255);
+  transform: scale(1);
 }
 
 .posts-container {
-  margin-top: 10px;
+  height: 65vh;
   overflow-y: scroll;
+  padding: 1rem 0 1rem 7vw;
 }
 
-.post-container {
+.posts-container > :not(:last-child) {
+  margin-bottom: var(--margin-sm);
+}
+
+.post {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 97%;
-  max-width: 800px;
-  border-radius: 5px;
+  width: 95%;
+  padding: 1.6rem;
+  border-radius: var(--bord-rad-sm);
   background: rgba(0, 90, 225, 0.193);
-  box-shadow: var(--custom-box-shadow);
-  padding: 18px;
-  margin: 10px;
+  box-shadow: var(--box-shad-sm);
 }
 
-.post-id {
+.post:nth-of-type(1) {
+  animation: fadeIn 0.5s;
+}
+.post:nth-of-type(2) {
+  animation: fadeIn 0.5s 0.5s backwards;
+}
+.post:nth-of-type(3) {
+  animation: fadeIn 0.5s 1s backwards;
+}
+.post:nth-of-type(4) {
+  animation: fadeIn 0.5s 1.5s backwards;
+}
+
+.post__id {
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30px;
-  width: 30px;
-  left: -7px;
-  top: -7px;
+  height: 3rem;
+  width: 3rem;
+  left: -0.7rem;
+  top: -0.7rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   border-radius: 50%;
   border: 1px solid white;
   background: linear-gradient(90deg, rgb(2, 1, 56), black 90%);
 }
 
-.post-title {
-  font-size: 18px;
-  font-weight: 500;
-  text-align: center;
+.post__title {
+  font-size: 1.8rem;
+  font-weight: 700;
   text-transform: capitalize;
-  padding: 3px 5px;
+  font-style: italic;
+  padding-bottom: 1.5rem;
 }
 
-.post-body {
-  margin-top: 10px;
-  font-size: 16px;
+.post__body {
+  font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.85);
-  line-height: 20px;
+  line-height: 1.7rem;
 }
 
 .loader {
   display: flex;
-  position: fixed;
-  bottom: 40px;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
   opacity: 0;
   transition: opacity 0.3s ease-in;
 }
@@ -153,9 +173,9 @@ body {
 
 .circle {
   border-radius: 50%;
-  height: 6px;
-  width: 6px;
-  margin: 0 5px;
+  height: 0.6rem;
+  width: 0.6rem;
+  margin: 0 4px;
   background: white;
   animation: bounce 0.5s ease-in infinite;
 }
@@ -179,13 +199,17 @@ body {
 }
 
 .footer {
-  position: fixed;
-  bottom: 15px;
+  height: 5vh;
+  font-size: 1.6rem;
+}
+
+.link--github {
+  color: inherit;
 }
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 1rem;
   /* display: none; */
 }
 
@@ -203,4 +227,13 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

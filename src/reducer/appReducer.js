@@ -1,39 +1,45 @@
-import { ACTIONS } from "./actions";
+import {
+  SET_IS_LOADING,
+  GET_POSTS,
+  SEARCH_CHANGE,
+  SET_ERR_MSG,
+} from './actions';
 
-const appReducer = (state, action) => {
+export const appReducer = (state, action) => {
   switch (action.type) {
-    case ACTIONS.GET_POSTS:
+    case SET_IS_LOADING:
       return {
         ...state,
-        posts: [...state.posts, ...action.payload],
-        filteredPosts: [...state.posts, ...action.payload],
+        isLoading: true,
       };
-    case ACTIONS.GET_MORE_POSTS:
+    case GET_POSTS:
       return {
         ...state,
+        isLoading: false,
+        fetchedPosts: [...state.fetchedPosts, ...action.payload],
+        filteredPosts: [...state.fetchedPosts, ...action.payload],
         urlPage: state.urlPage + 1,
-        base_url: `https://jsonplaceholder.typicode.com/posts?_limit=4&_page=${
+        baseUrl: `https://jsonplaceholder.typicode.com/posts?_limit=4&_page=${
           state.urlPage + 1
         }`,
       };
-    case ACTIONS.SEARCH_CHANGE:
+    case SEARCH_CHANGE:
       return {
         ...state,
-        filteredPosts: state.posts.filter(({ title, body }) => {
+        filteredPosts: state.fetchedPosts.filter(({ title, body }) => {
           return (
             title.includes(action.payload) || body.includes(action.payload)
           );
         }),
       };
-    case ACTIONS.ERROR:
+    case SET_ERR_MSG:
       return {
         ...state,
-        posts: [],
-        hasError: action.payload,
+        isLoading: false,
+        fetchedPosts: [],
+        errMsg: action.payload,
       };
     default:
       return state;
   }
 };
-
-export { appReducer };

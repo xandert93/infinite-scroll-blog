@@ -1,11 +1,11 @@
-import React, { useContext, useRef } from "react";
-import { GlobalContext } from "../contexts/GlobalContext";
-import useSearchChange from "../customHooks/useSearchChange";
+import React, { useContext, useRef } from 'react';
+import { GlobalContext } from '../contexts/GlobalContext';
+import useSearchChange from '../customHooks/useSearchChange';
 
-const SearchInputContainer = () => {
+const SearchBar = () => {
+  const inputRef = useRef();
   let { dispatch } = useContext(GlobalContext);
   const [searchField, handleSearchChange] = useSearchChange(dispatch);
-  const inputRef = useRef();
 
   return (
     <div className="search-input-container">
@@ -16,11 +16,8 @@ const SearchInputContainer = () => {
         className="search-input"
         placeholder="Filter results..."
       />
-      <button className="search-btn">
-        <i className="fas fa-search"></i>
-      </button>
     </div>
   );
 };
 
-export default SearchInputContainer;
+export default SearchBar;
