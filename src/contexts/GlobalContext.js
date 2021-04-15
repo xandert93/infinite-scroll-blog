@@ -2,10 +2,10 @@ import { createContext, useReducer } from 'react';
 import { appReducer } from '../reducer/appReducer';
 
 import {
+  SET_IS_LOADING,
   GET_POSTS,
   SET_ERR_MSG,
-  SET_IS_LOADING,
-  UPDATE_URL,
+  FILTER_POSTS,
 } from '../reducer/actions';
 import axios from 'axios';
 
@@ -41,9 +41,15 @@ const GlobalProvider = ({ children }) => {
     }
   };
 
+  const filterPosts = (userInput) =>
+    dispatch({
+      type: FILTER_POSTS,
+      payload: userInput.toLowerCase(),
+    });
+
   return (
     <GlobalContext.Provider
-      value={{ ...state, setIsLoading, fetchPosts, dispatch }}
+      value={{ ...state, setIsLoading, fetchPosts, filterPosts }}
     >
       {children}
     </GlobalContext.Provider>

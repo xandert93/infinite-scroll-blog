@@ -1,7 +1,7 @@
 import {
   SET_IS_LOADING,
   GET_POSTS,
-  SEARCH_CHANGE,
+  FILTER_POSTS,
   SET_ERR_MSG,
 } from './actions';
 
@@ -23,7 +23,7 @@ export const appReducer = (state, action) => {
           state.urlPage + 1
         }`,
       };
-    case SEARCH_CHANGE:
+    case FILTER_POSTS:
       return {
         ...state,
         filteredPosts: state.fetchedPosts.filter(({ title, body }) => {
