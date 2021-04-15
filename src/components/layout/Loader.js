@@ -1,32 +1,34 @@
 import { useContext, useEffect, useState } from 'react';
-import { GlobalContext } from '../../contexts/GlobalContext';
+import { globalContext } from '../../contexts/globalContext';
 
-const Loader = () => {
-  let { filteredPosts, fetchPosts } = useContext(GlobalContext);
+const Loader = ({
+  inputRef: { current: inputNode },
+  postRef: { current: postNode },
+}) => {
+  let { filteredPosts, fetchPosts } = useContext(globalContext);
   const [showLoader, setShowLoader] = useState(false);
 
   useEffect(() => {
-    if (
-      filteredPosts.length !== 0 &&
-      document.querySelector('input').value === '' &&
-      filteredPosts.length !== 100
-    ) {
-      let allPosts = document.querySelectorAll('.post');
-      let lastPost = allPosts[filteredPosts.length - 1];
-      const handleIntersection = ([firstEntry]) => {
-        if (firstEntry.isIntersecting) {
-          setTimeout(fetchPosts);
-          setShowLoader(true);
-          setTimeout(setShowLoader, 1000, false);
-          myObserver.unobserve(lastPost);
-        }
-      };
-      let myObserver = new IntersectionObserver(handleIntersection, {
-        threshold: 1,
-      });
-      myObserver.observe(lastPost);
-    }
-  }, [filteredPosts]);
+    console.log(postNode);
+    console.log(inputNode);
+  });
+
+  // useEffect(() => {
+  //   if (filteredPosts.length !== 0 || (100 && inputNode.value === '')) {
+  //     const handleIntersection = ([firstEntry]) => {
+  //       if (firstEntry.isIntersecting) {
+  //         fetchPosts();
+  //         setShowLoader(true);
+  //         setTimeout(setShowLoader, 1000, false);
+  //         myObserver.unobserve(postNode);
+  //       }
+  //     };
+  //     let myObserver = new IntersectionObserver(handleIntersection, {
+  //       threshold: 1,
+  //     });
+  //     myObserver.observe(postNode);
+  //   }
+  // });
 
   return (
     <div className={`loader ${showLoader ? 'show' : ''}`}>

@@ -1,30 +1,23 @@
 import React, { useContext, useEffect } from 'react';
-import { GlobalContext } from '../contexts/GlobalContext';
+import { globalContext } from '../contexts/globalContext';
 import SinglePost from './SinglePost';
 
-const Posts = () => {
-  const {
-    isLoading,
-    filteredPosts,
-    errMsg,
-    setIsLoading,
-    fetchPosts,
-  } = useContext(GlobalContext);
+const Posts = ({ postRef }) => {
+  const { filteredPosts, fetchPosts } = useContext(globalContext);
 
-  useEffect(() => {
-    setIsLoading();
-    fetchPosts();
-  }, []);
-
-  console.log(isLoading);
+  useEffect(fetchPosts, []);
 
   return (
     <div className="posts-container">
-      {isLoading && <h3>LOADING...</h3>}
-      {errMsg && <h3>{errMsg} Please try refreshing</h3>}
-      {filteredPosts &&
+      {filteredPosts.length > 0 &&
         filteredPosts.map(({ id, title, body }) => (
-          <SinglePost key={id} postNum={id} title={title} body={body} />
+          <SinglePost
+            key={id}
+            postNum={id}
+            title={title}
+            body={body}
+            postRef={id === filteredPosts.length ? postRef : null}
+          />
         ))}
     </div>
   );

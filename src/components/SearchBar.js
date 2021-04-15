@@ -1,19 +1,18 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import { GlobalContext } from '../contexts/GlobalContext';
+import React, { useContext, useEffect, useState } from 'react';
+import { globalContext } from '../contexts/globalContext';
 
-const SearchBar = () => {
-  const inputRef = useRef();
-  let { filterPosts } = useContext(GlobalContext);
-  const [searchField, setSearchField] = useState('');
+const SearchBar = ({ inputRef }) => {
+  let { filterPosts } = useContext(globalContext);
+  const [userInput, setUserInput] = useState('');
 
-  useEffect(() => filterPosts(searchField), [searchField]);
+  useEffect(() => userInput && filterPosts(userInput), [userInput]);
 
   return (
     <div className="search-input-container">
       <input
         ref={inputRef}
-        value={searchField}
-        onChange={(e) => setSearchField(e.target.value)}
+        value={userInput}
+        onChange={(e) => setUserInput(e.target.value)}
         className="search-input"
         placeholder="Filter results..."
       />

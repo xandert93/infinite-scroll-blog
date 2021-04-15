@@ -5,16 +5,20 @@ import Header from './components/layout/Header';
 import Loader from './components/layout/Loader';
 import SearchBar from './components/SearchBar';
 
-import { GlobalProvider } from './contexts/GlobalContext';
+import { useRef } from 'react';
 
-const App = () => (
-  <GlobalProvider>
-    <Header />
-    <SearchBar />
-    <Posts />
-    <Loader />
-    <Footer />
-  </GlobalProvider>
-);
+const App = () => {
+  const inputRef = useRef(null);
+  const postRef = useRef(null);
+  return (
+    <>
+      <Header />
+      <SearchBar inputRef={inputRef} />
+      <Posts postRef={postRef} />
+      <Loader inputRef={inputRef} postRef={postRef} />
+      <Footer />
+    </>
+  );
+};
 
 export default App;

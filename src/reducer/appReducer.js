@@ -1,17 +1,7 @@
-import {
-  SET_IS_LOADING,
-  GET_POSTS,
-  FILTER_POSTS,
-  SET_ERR_MSG,
-} from './actions';
+import { GET_POSTS, FILTER_POSTS, SET_ERR_MSG } from './actions';
 
 export const appReducer = (state, action) => {
   switch (action.type) {
-    case SET_IS_LOADING:
-      return {
-        ...state,
-        isLoading: true,
-      };
     case GET_POSTS:
       return {
         ...state,
