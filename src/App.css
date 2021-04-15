@@ -55,6 +55,7 @@ body {
 }
 
 #root {
+  height: 100vh;
   background: linear-gradient(180deg, rgb(0, 77, 192), black 60%) no-repeat;
   overflow: hidden;
 }
@@ -99,7 +100,7 @@ h1 {
 .posts-container {
   height: 65vh;
   overflow-y: scroll;
-  padding: 1rem 0 1rem 7vw;
+  padding: 1rem 0 1rem 6.3vw;
 }
 
 .posts-container > :not(:last-child) {
@@ -199,7 +200,10 @@ h1 {
 }
 
 .footer {
-  height: 5vh;
+  position: fixed;
+  bottom: 4vh;
+  left: 50%;
+  transform: translate(-50%, 50%);
   font-size: 1.6rem;
 }
 
@@ -232,8 +236,10 @@ h1 {
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(3rem);
   }
   to {
-    opacity: 1;
+    opacity: initial;
+    transform: initial;
   }
 }

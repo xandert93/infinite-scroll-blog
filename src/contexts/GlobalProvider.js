@@ -13,8 +13,8 @@ const GlobalProvider = ({ children }) => {
     try {
       const res = await axios.get(baseUrl);
       setTimeout(
-        () => dispatch({ type: GET_POSTS, payload: res.data })
-        // fetchedPosts.length === 0 ? 3000 : 1000
+        () => dispatch({ type: GET_POSTS, payload: res.data }),
+        fetchedPosts.length === 0 ? 300 : 200
       );
     } catch (err) {
       dispatch({

@@ -5,17 +5,25 @@ import Header from './components/layout/Header';
 import Loader from './components/layout/Loader';
 import SearchBar from './components/SearchBar';
 
-import { useRef } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { globalContext } from './contexts/globalContext';
 
 const App = () => {
-  const inputRef = useRef(null);
-  const postRef = useRef(null);
+  const { isLoading, filteredPosts, fetchPosts } = useContext(globalContext);
+  const inputRef = useRef();
+  const postRef = useRef();
+
+  useEffect(fetchPosts, []);
+
   return (
     <>
       <Header />
       <SearchBar inputRef={inputRef} />
-      <Posts postRef={postRef} />
-      <Loader inputRef={inputRef} postRef={postRef} />
+      {/* {isLoading && <Loader />} */}
+      {filteredPosts.length > 0 && <Posts postRef={postRef} />}
+      {filteredPosts.length > 0 && (
+        <Loader inputNode={inputRef.current} postNode={postRef.current} />
+      )}
       <Footer />
     </>
   );
