@@ -9,9 +9,7 @@ import { useContext, useEffect, useRef } from 'react';
 import { globalContext } from './contexts/globalContext';
 
 const App = () => {
-  const { isLoading, urlPage, filteredPosts, fetchPosts } = useContext(
-    globalContext
-  );
+  const { isLoading, filteredPosts, fetchPosts } = useContext(globalContext);
   const inputRef = useRef();
 
   useEffect(fetchPosts, []);
@@ -20,7 +18,7 @@ const App = () => {
     <>
       <Header />
       <SearchBar inputRef={inputRef} />
-      {urlPage === 1 && <Loader />}
+      {filteredPosts.length === 0 && isLoading && <Loader />}
       {filteredPosts.length > 0 && (
         <>
           <Posts inputRef={inputRef} />

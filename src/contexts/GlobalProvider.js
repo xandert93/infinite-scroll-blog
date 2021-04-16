@@ -1,5 +1,5 @@
 import { globalContext, initialState } from './globalContext';
-import { useReducer } from 'react';
+import { useCallback, useReducer } from 'react';
 import { appReducer } from '../reducer/appReducer';
 import axios from 'axios';
 
@@ -10,15 +10,22 @@ import {
   SET_LOADING,
 } from '../reducer/actions';
 
+let pageNumber = 1;
+let baseUrl = 'https://jsonplaceholder.typicode.com/posts?_limit=10&_page=';
+
 const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(appReducer, initialState);
-  const { baseUrl, fetchedPosts } = state;
+  const { fetchedPosts } = state;
 
-  const fetchPosts = async () => {
+  const fetchPosts = useCallback(async () => {
     try {
-      const res = await axios.get(baseUrl);
+      const res = await axios.get(baseUrl + pageNumber);
+
       setTimeout(
-        () => dispatch({ type: GET_POSTS, payload: res.data }),
+        () => {
+          dispatch({ type: GET_POSTS, payload: res.data });
+          pageNumber++;
+        },
         fetchedPosts.length === 0 ? 3000 : 2000
       );
     } catch (err) {
@@ -27,15 +34,18 @@ const GlobalProvider = ({ children }) => {
         payload: `There was an error: ${err.message}.`,
       });
     }
-  };
+  }, []);
 
-  const setLoading = () => dispatch({ type: SET_LOADING });
+  const setLoading = useCallback(() => dispatch({ type: SET_LOADING }), []);
 
-  const filterPosts = (userInput) =>
-    dispatch({
-      type: FILTER_POSTS,
-      payload: userInput.toLowerCase(),
-    });
+  const filterPosts = useCallback(
+    (userInput) =>
+      dispatch({
+        type: FILTER_POSTS,
+        payload: userInput.toLowerCase(),
+      }),
+    []
+  );
 
   return (
     <globalContext.Provider

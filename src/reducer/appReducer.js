@@ -13,10 +13,6 @@ export const appReducer = (state, action) => {
         isLoading: false,
         fetchedPosts: [...state.fetchedPosts, ...action.payload],
         filteredPosts: [...state.fetchedPosts, ...action.payload],
-        urlPage: state.urlPage + 1,
-        baseUrl: `https://jsonplaceholder.typicode.com/posts?_limit=4&_page=${
-          state.urlPage + 1
-        }`,
       };
     case FILTER_POSTS:
       return {

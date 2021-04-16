@@ -5,6 +5,8 @@ import SinglePost from './SinglePost';
 const Posts = ({ inputRef }) => {
   const { filteredPosts, setLoading, fetchPosts } = useContext(globalContext);
 
+  console.log(filteredPosts);
+
   const observerRef = useRef();
 
   const observePost = useCallback(
@@ -13,19 +15,18 @@ const Posts = ({ inputRef }) => {
       observerRef.current = new IntersectionObserver(handleIntersection, {
         threshold: 1,
       });
-      let check =
-        ![0, 100].includes(filteredPosts.length) && !inputRef.current.value;
-      if (check) observerRef.current.observe(node);
+      if ([0, 100].includes(filteredPosts.length) || inputRef.current.value)
+        return;
+      else observerRef.current.observe(node);
     },
     [filteredPosts]
   );
 
   const handleIntersection = ([firstEntry]) => {
-    if (firstEntry.isIntersecting) {
-      setLoading();
-      fetchPosts();
-      observerRef.current.unobserve(firstEntry.target);
-    }
+    if (!firstEntry.isIntersecting || inputRef.current.value) return;
+    setLoading();
+    fetchPosts();
+    observerRef.current.unobserve(firstEntry.target);
   };
 
   return (

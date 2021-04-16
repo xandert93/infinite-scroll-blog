@@ -5,7 +5,6 @@ const SearchBar = ({ inputRef }) => {
   let { filterPosts, isLoading } = useContext(globalContext);
   const [userInput, setUserInput] = useState('');
 
-  // eslint-disable-next-line
   useEffect(() => filterPosts(userInput), [userInput]);
 
   return (
