@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import { globalContext } from '../contexts/globalContext';
 
 const SearchBar = ({ inputRef }) => {
-  let { filterPosts } = useContext(globalContext);
+  let { filterPosts, isLoading } = useContext(globalContext);
   const [userInput, setUserInput] = useState('');
 
+  // eslint-disable-next-line
   useEffect(() => filterPosts(userInput), [userInput]);
 
   return (
@@ -15,6 +16,7 @@ const SearchBar = ({ inputRef }) => {
         onChange={(e) => setUserInput(e.target.value)}
         className="search-input"
         placeholder="Filter results..."
+        style={{ pointerEvents: `${isLoading ? 'none' : ''}` }}
       />
     </div>
   );

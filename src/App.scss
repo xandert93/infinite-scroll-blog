@@ -11,31 +11,28 @@
 
 html {
   font-size: 62.5%;
-}
-
-@media only screen and (min-width: 30em) {
-  html {
-    font-size: 68.75%;
-  }
-}
-@media only screen and (min-width: 40em) {
-  html {
+  @media only screen and (min-width: 22.5em) and (min-height: 40em) {
     font-size: 75%;
   }
-}
-@media only screen and (min-width: 50em) {
-  html {
+  @media only screen and (min-width: 25em) and (min-height: 45em) {
     font-size: 81.25%;
   }
-}
-@media only screen and (min-width: 60em) {
-  html {
+
+  @media only screen and (min-width: 30em) {
+    font-size: 81.25%;
+  }
+
+  @media only screen and (min-width: 35em) {
     font-size: 87.5%;
   }
-}
-@media only screen and (min-width: 70em) {
-  html {
+  @media only screen and (min-width: 45em) {
     font-size: 93.75%;
+  }
+  @media only screen and (min-width: 55em) {
+    font-size: 100%;
+  }
+  @media only screen and (min-width: 65em) {
+    font-size: 106.25%;
   }
 }
 
@@ -64,14 +61,42 @@ body {
 } */
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   letter-spacing: 3px;
   height: 15vh;
   padding-top: 2.5rem;
+
+  @media only screen and (min-width: 22.5em) and (min-height: 40em) {
+    height: 13vh;
+  }
+
+  @media only screen and (min-width: 22.5em) and (min-height: 45em) {
+    height: 10vh;
+  }
+
+  @media only screen and (min-width: 25em) and (min-height: 45em) {
+    height: 12vh;
+  }
 }
 
 .search-input-container {
   height: 10vh;
+
+  @media only screen and (min-width: 17.5em) and (min-height: 40em) {
+    height: 7vh;
+  }
+
+  @media only screen and (min-width: 22.5em) and (min-height: 40em) {
+    height: 8vh;
+  }
+
+  @media only screen and (min-width: 22.5em) and (min-height: 45em) {
+    height: 7vh;
+  }
+
+  @media only screen and (min-width: 25em) and (min-height: 50em) {
+    height: 7vh;
+  }
 }
 
 .search-input {
@@ -99,8 +124,26 @@ h1 {
 
 .posts-container {
   height: 65vh;
+
+  @media only screen and (min-width: 17.5em) and (min-height: 40em) {
+    height: 68vh;
+  }
+
+  @media only screen and (min-width: 22.5em) and (min-height: 40em) {
+    height: 69vh;
+  }
+
+  @media only screen and (min-width: 22.5em) and (min-height: 45em) {
+    height: 71vh;
+  }
+
+  @media only screen and (min-width: 25em) and (min-height: 50em) {
+    height: 71vh;
+  }
+
+  margin: 0 auto;
   overflow-y: scroll;
-  padding: 1rem 0 1rem 6.3vw;
+  padding: 1rem 0 1rem 6vw;
 }
 
 .posts-container > :not(:last-child) {
@@ -209,7 +252,7 @@ h1 {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 1rem;
+  width: 0.5rem;
   /* display: none; */
 }
 
