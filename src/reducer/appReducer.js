@@ -1,7 +1,12 @@
-import { GET_POSTS, FILTER_POSTS, SET_ERR_MSG } from './actions';
+import { SET_LOADING, GET_POSTS, FILTER_POSTS, SET_ERR_MSG } from './actions';
 
 export const appReducer = (state, action) => {
   switch (action.type) {
+    case SET_LOADING:
+      return {
+        ...state,
+        isLoading: true,
+      };
     case GET_POSTS:
       return {
         ...state,
@@ -16,11 +21,10 @@ export const appReducer = (state, action) => {
     case FILTER_POSTS:
       return {
         ...state,
-        filteredPosts: state.fetchedPosts.filter(({ title, body }) => {
-          return (
+        filteredPosts: state.fetchedPosts.filter(
+          ({ title, body }) =>
             title.includes(action.payload) || body.includes(action.payload)
-          );
-        }),
+        ),
       };
     case SET_ERR_MSG:
       return {

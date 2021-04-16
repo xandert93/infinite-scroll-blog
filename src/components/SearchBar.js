@@ -5,7 +5,7 @@ const SearchBar = ({ inputRef }) => {
   let { filterPosts } = useContext(globalContext);
   const [userInput, setUserInput] = useState('');
 
-  useEffect(() => userInput && filterPosts(userInput), [userInput]);
+  useEffect(() => filterPosts(userInput), [userInput]);
 
   return (
     <div className="search-input-container">
