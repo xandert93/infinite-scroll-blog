@@ -1,10 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const Footer = () => (
-  <footer className="footer" title="Visit GitHub page">
+let Footer = ({ className }) => (
+  <footer className={className} title="Visit GitHub page">
     &copy;{' '}
     <a
-      className="link--github"
+      className="link-github"
       href="https://github.com/xandert93"
       target="_blank"
       rel="noopener noreferrer"
@@ -14,4 +15,14 @@ const Footer = () => (
   </footer>
 );
 
-export default Footer;
+export default Footer = styled(Footer)`
+  position: fixed;
+  bottom: 4vh;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  font-size: 1.6rem;
+
+  .link-github {
+    color: inherit;
+  }
+`;

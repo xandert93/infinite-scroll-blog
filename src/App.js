@@ -1,4 +1,4 @@
-import './App.scss';
+import './App.css';
 import Posts from './components/Posts';
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
@@ -7,6 +7,7 @@ import SearchBar from './components/SearchBar';
 
 import { useContext, useEffect, useRef } from 'react';
 import { globalContext } from './contexts/globalContext';
+import GlobalStyle from './theme/GlobalStyle';
 
 const App = () => {
   const { isLoading, filteredPosts, fetchPosts } = useContext(globalContext);
@@ -16,7 +17,8 @@ const App = () => {
 
   return (
     <>
-      <Header />
+      <GlobalStyle />
+      <Header>Infinite Scroll Blog</Header>
       <SearchBar inputRef={inputRef} />
       {filteredPosts.length === 0 && isLoading && <Loader />}
       {filteredPosts.length > 0 && (
