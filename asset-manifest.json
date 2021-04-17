@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/infinite-scroll-blog/static/css/main.b8151ccd.chunk.css",
-    "main.js": "/infinite-scroll-blog/static/js/main.ce5b9023.chunk.js",
-    "main.js.map": "/infinite-scroll-blog/static/js/main.ce5b9023.chunk.js.map",
+    "main.js": "/infinite-scroll-blog/static/js/main.549ff186.chunk.js",
+    "main.js.map": "/infinite-scroll-blog/static/js/main.549ff186.chunk.js.map",
     "runtime-main.js": "/infinite-scroll-blog/static/js/runtime-main.d3586cd7.js",
     "runtime-main.js.map": "/infinite-scroll-blog/static/js/runtime-main.d3586cd7.js.map",
     "static/js/2.b4c5c0ba.chunk.js": "/infinite-scroll-blog/static/js/2.b4c5c0ba.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.d3586cd7.js",
     "static/js/2.b4c5c0ba.chunk.js",
     "static/css/main.b8151ccd.chunk.css",
-    "static/js/main.ce5b9023.chunk.js"
+    "static/js/main.549ff186.chunk.js"
   ]
 }
