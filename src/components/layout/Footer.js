@@ -1,28 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 
-let Footer = ({ className }) => (
-  <footer className={className} title="Visit GitHub page">
-    &copy;{' '}
-    <a
-      className="link-github"
-      href="https://github.com/xandert93"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      xandert.93
-    </a>
-  </footer>
-);
-
-export default Footer = styled(Footer)`
+const StyledFooter = styled.footer.attrs({ title: 'Visit GitHub page' })`
   position: fixed;
   bottom: 4vh;
   left: 50%;
   transform: translate(-50%, 50%);
   font-size: 1.6rem;
-
-  .link-github {
-    color: inherit;
-  }
 `;
+
+const Link = styled.a.attrs({ target: '_blank', rel: 'noopener noreferrer' })`
+  color: inherit;
+`;
+
+const GitHubLink = styled(Link).attrs({
+  href: 'https://github.com/xandert93',
+})``;
+
+const Footer = () => (
+  <StyledFooter>
+    &copy; <GitHubLink>xandert.93</GitHubLink>
+  </StyledFooter>
+);
+
+export default Footer;

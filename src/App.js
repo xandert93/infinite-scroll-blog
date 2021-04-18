@@ -18,7 +18,7 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Header>Infinite Scroll Blog</Header>
+      <Header />
       <SearchBar inputRef={inputRef} />
       {filteredPosts.length === 0 && isLoading && <Loader />}
       {filteredPosts.length > 0 && (

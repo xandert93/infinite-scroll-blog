@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Header = styled.h1`
+const StyledHeader = styled.h1`
   font-size: 2.8rem;
   letter-spacing: 3px;
   height: 15vh;
@@ -18,5 +18,7 @@ const Header = styled.h1`
     height: 12vh;
   }
 `;
+
+const Header = () => <StyledHeader>Infinite Scroll Blog</StyledHeader>;
 
 export default Header;
