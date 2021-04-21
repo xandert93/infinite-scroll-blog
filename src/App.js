@@ -1,4 +1,3 @@
-import './App.css';
 import Posts from './components/Posts';
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';

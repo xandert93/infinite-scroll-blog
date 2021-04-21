@@ -34,26 +34,27 @@ const PostsContainer = styled.div`
 const Posts = ({ inputRef }) => {
   const { filteredPosts, setLoading, fetchPosts } = useContext(globalContext);
 
-  const observerRef = useRef();
+  const observer = useRef();
 
   const observePost = useCallback(
     (node) => {
-      if (!node) return;
-      observerRef.current = new IntersectionObserver(handleIntersection, {
-        threshold: 1,
-      });
-      if ([0, 100].includes(filteredPosts.length) || inputRef.current.value)
+      if (!node || filteredPosts.length === 100 || inputRef.current.value)
         return;
-      else observerRef.current.observe(node);
+      if (!observer.current)
+        observer.current = new IntersectionObserver(intersectionHandler, {
+          threshold: 1,
+        });
+
+      observer.current.observe(node);
     },
     [filteredPosts]
   );
 
-  const handleIntersection = ([firstEntry]) => {
+  const intersectionHandler = ([firstEntry]) => {
     if (!firstEntry.isIntersecting || inputRef.current.value) return;
     setLoading();
     fetchPosts();
-    observerRef.current.unobserve(firstEntry.target);
+    observer.current.unobserve(firstEntry.target);
   };
 
   return (

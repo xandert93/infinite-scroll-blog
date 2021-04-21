@@ -37,7 +37,7 @@ const PostTitle = styled.div`
   padding-bottom: 1.5rem;
 `;
 
-const PostBody = styled.body`
+const PostBody = styled.div`
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.7rem;

@@ -22,7 +22,7 @@ const LoaderContainer = styled.div`
 const bounce = keyframes`
   0%,
   100% {
-    transform: translateY(0);
+    transform: initial;
   }
   50% {
     transform: translateY(-5px);
@@ -35,21 +35,21 @@ const Circle = styled.div`
   margin: 0 4px;
   background: white;
   animation: ${bounce} 0.5s ease-in infinite;
+`;
 
-  &:nth-of-type(2) {
-    animation-delay: 0.1s;
-  }
+const CircleTwo = styled(Circle)`
+  animation-delay: 0.1s;
+`;
 
-  &:nth-of-type(3) {
-    animation-delay: 0.2s;
-  }
+const CircleThree = styled(Circle)`
+  animation-delay: 0.2s;
 `;
 
 const Loader = () => (
   <LoaderContainer>
     <Circle />
-    <Circle />
-    <Circle />
+    <CircleTwo />
+    <CircleThree />
   </LoaderContainer>
 );
 

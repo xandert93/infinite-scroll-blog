@@ -17,6 +17,10 @@ const SearchInputBox = styled.div`
   @media only screen and (min-width: 25em) and (min-height: 50em) {
     height: 7vh;
   }
+
+  @media only screen and (min-width: 30em) and (max-height: 22.5em) {
+    padding-bottom: 5rem;
+  }
 `;
 
 const SearchInput = styled.input.attrs({ placeholder: 'Filter results...' })`

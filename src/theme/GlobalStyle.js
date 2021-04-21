@@ -2,7 +2,12 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 
-
+:root {
+  --box-shad-sm: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  --margin-xs: 1rem;
+  --margin-sm: 2rem;
+  --bord-rad-sm: 0.5rem;
+}
 
 html {
   font-size: 62.5%;

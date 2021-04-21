@@ -17,6 +17,10 @@ const StyledHeader = styled.h1`
   @media only screen and (min-width: 25em) and (min-height: 45em) {
     height: 12vh;
   }
+
+  @media only screen and (min-width: 30em) and (max-height: 26em) {
+    padding-bottom: 4rem;
+  }
 `;
 
 const Header = () => <StyledHeader>Infinite Scroll Blog</StyledHeader>;
