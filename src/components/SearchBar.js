@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { globalContext } from '../contexts/globalContext';
+import PropTypes from 'prop-types';
 
 const SearchInputBox = styled.div`
   height: 10vh;
@@ -64,6 +65,10 @@ const SearchBar = ({ inputRef }) => {
       />
     </SearchInputBox>
   );
+};
+
+SearchBar.propTypes = {
+  inputRef: PropTypes.object.isRequired,
 };
 
 export default SearchBar;

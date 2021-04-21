@@ -2,6 +2,7 @@ import React, { useCallback, useContext, useRef } from 'react';
 import styled from 'styled-components';
 import { globalContext } from '../contexts/globalContext';
 import SinglePost from './SinglePost';
+import PropTypes from 'prop-types';
 
 const PostsContainer = styled.div`
   height: 65vh;
@@ -68,6 +69,10 @@ const Posts = ({ inputRef }) => {
       ))}
     </PostsContainer>
   );
+};
+
+Posts.propTypes = {
+  inputRef: PropTypes.object.isRequired,
 };
 
 export default Posts;

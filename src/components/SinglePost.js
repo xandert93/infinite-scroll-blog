@@ -1,5 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const PostContainer = styled.div`
   position: relative;
@@ -67,6 +68,10 @@ const SinglePost = ({ post: { title, body, id: postNum }, observePost }) => {
       <PostBody>{body}</PostBody>
     </PostContainer>
   );
+};
+
+SinglePost.propTypes = {
+  post: PropTypes.object.isRequired,
 };
 
 export default SinglePost;
