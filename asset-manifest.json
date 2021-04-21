@@ -1,20 +1,17 @@
 {
   "files": {
-    "main.css": "/infinite-scroll-blog/static/css/main.b8151ccd.chunk.css",
-    "main.js": "/infinite-scroll-blog/static/js/main.549ff186.chunk.js",
-    "main.js.map": "/infinite-scroll-blog/static/js/main.549ff186.chunk.js.map",
+    "main.js": "/infinite-scroll-blog/static/js/main.f49c990f.chunk.js",
+    "main.js.map": "/infinite-scroll-blog/static/js/main.f49c990f.chunk.js.map",
     "runtime-main.js": "/infinite-scroll-blog/static/js/runtime-main.d3586cd7.js",
     "runtime-main.js.map": "/infinite-scroll-blog/static/js/runtime-main.d3586cd7.js.map",
-    "static/js/2.b4c5c0ba.chunk.js": "/infinite-scroll-blog/static/js/2.b4c5c0ba.chunk.js",
-    "static/js/2.b4c5c0ba.chunk.js.map": "/infinite-scroll-blog/static/js/2.b4c5c0ba.chunk.js.map",
+    "static/js/2.dd7543fd.chunk.js": "/infinite-scroll-blog/static/js/2.dd7543fd.chunk.js",
+    "static/js/2.dd7543fd.chunk.js.map": "/infinite-scroll-blog/static/js/2.dd7543fd.chunk.js.map",
     "index.html": "/infinite-scroll-blog/index.html",
-    "static/css/main.b8151ccd.chunk.css.map": "/infinite-scroll-blog/static/css/main.b8151ccd.chunk.css.map",
-    "static/js/2.b4c5c0ba.chunk.js.LICENSE.txt": "/infinite-scroll-blog/static/js/2.b4c5c0ba.chunk.js.LICENSE.txt"
+    "static/js/2.dd7543fd.chunk.js.LICENSE.txt": "/infinite-scroll-blog/static/js/2.dd7543fd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d3586cd7.js",
-    "static/js/2.b4c5c0ba.chunk.js",
-    "static/css/main.b8151ccd.chunk.css",
-    "static/js/main.549ff186.chunk.js"
+    "static/js/2.dd7543fd.chunk.js",
+    "static/js/main.f49c990f.chunk.js"
   ]
 }
